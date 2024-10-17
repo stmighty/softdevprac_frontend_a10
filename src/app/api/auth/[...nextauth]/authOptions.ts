@@ -1,6 +1,6 @@
 import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import userLogin from "@/libs/userLogIn";
+import userLogIn from "@/libs/userLogIn";
 
 export const authOptions: AuthOptions = {
     providers: [
@@ -14,7 +14,7 @@ export const authOptions: AuthOptions = {
                 if (!credentials) {
                     return null;
                 }
-                const user = await userLogin(credentials.email, credentials.password);
+                const user = await userLogIn(credentials.email, credentials.password);
                 if (user) {
                     return user;
                 } else {
